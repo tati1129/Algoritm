@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="User1"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2023-02-24 11:30:12 "/>
+        <attribute name="created" value="VXNlcjE7REVTS1RPUC00ODM2MzUzOzIwMjMtMDItMjQ7IjExOjAyOjUyICI7MjU5Ng=="/>
+        <attribute name="edited" value="VXNlcjE7REVTS1RPUC00ODM2MzUzOzIwMjMtMDItMjQ7IjExOjMwOjEyICI7MTsyNzAx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="N" type="Integer" array="False" size=""/>
+            <output expression="&quot;&#1074;&#1074;&#1077;&#1076;&#1080;&#1090;&#1077;  &#1095;&#1080;&#1089;&#1083;&#1086; N: &quot;" newline="True"/>
+            <input variable="N"/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="1"/>
+            <declare name="cube" type="Integer" array="False" size=""/>
+            <while expression="i &lt;= N">
+                <assign variable="cube" expression="i*i*i"/>
+                <if expression="cube mod 2 == 0">
+                    <then>
+                        <output expression="cube" newline="True"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
