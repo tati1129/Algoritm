@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function swaper(arr, i, j) {
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            
+        }
+
+        function quickSort(arr, left, right){
+            let i = left;
+            let j = right;
+            // let basic = arr[end]; 
+            // let basic = = arr[Math.floor(Math.random() * (right - left) + left)];
+            let basic = arr[Math.floor((left+right)/2)]
+            while (i <= j) {
+                while(arr[i] < basic) i++;
+                while(arr[j] > basic) j--;
+                if (i<=j){
+                    swaper(arr, i, j)
+                    i++; j--;
+                }
+            }
+            if (left < j) quickSort(arr, left, j);
+            if (i < right) quickSort(arr, i, right);
+                return arr;
+            }
+
+        // let arr = [2, -2, 4, 1, -4, 7, 6, 5, 0]
+        let arr = [0, -2, 6, 8, -3, 2, 1]
+        document.write(`${arr} <br>`);
+        document.write(quickSort(arr, 0, arr.length - 1) + '<br>');
+
+    </script>
+</body>
+</html>
