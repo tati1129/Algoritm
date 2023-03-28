@@ -44,8 +44,8 @@ function elevator(a, b, stage){
     return `Elevators on your floor`
 }
 
-console.log(elevator(0,8,1));
-console.log(elevator(8,0,1));
-console.log(elevator(0,0,0));
-console.log(elevator(2,2,1));
-console.log(elevator(8,2,6));
+console.log(elevator(0,8,1));  //Elevator A on the way in:  1 stage
+console.log(elevator(8,0,1));  //Elevator B on the way in:  1  stage
+console.log(elevator(0,0,0));  //Elevators on your floor
+console.log(elevator(2,2,1));  //Elevator B on the way  in 1 stage
+console.log(elevator(8,2,6));  //Elevator A on the way in:  2 stage
