@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div> 
+        <p>
+            Список1<br>
+            <img src="./s1.png" alt="">
+        </p>       
+        <p>
+            Список2<br>
+            <img src="./s2.png" alt="">
+        </p> 
+        <p>
+            Список3 Бинарное дерево<br>
+            <img src="./s3.png" alt="">
+        </p>
+    </div>
+
+
+     <script>
+     /*    
+        Стек и очередь две структуры данных (абстрактные структуры данных)
+
+        СТЕК - это линейная структура данных, кот следует определенному порядку выполнения операций. Порядок LIFO (последний пришел, первый ушел). В качестве хранилища могут выступать разные структуры данных - Массив и Список.
+
+        Массив:
+        Структура данных может называться стеком, если есть основные 2 операции(методы) .push(добавляет в конец) и .pop(извлекает из конца)
+
+ */
+    class MyStack{
+        constructor(){
+            this.storage = Array(10); // создаем массив 10 элем
+            this.tail = 0; // пусть эта переменная будет в конце
+          
+        }
+        push(item){// создаем ф-цию, кот принимает элем и добавляет его
+            if(this.tail < this.storage.length) //проверяем достаточно ли места, если нет 
+            this.storage[this.tail++] = item //увеличиваем
+        }
+        pop() { // созд ф-цию
+            if(this.tail > 0){//проверяем чтоб массив был не пустой
+            let t =  this.storage[--this.tail]; //пусть элем удаляет с конце элем
+            this.storage[this.tail] = ''; // затираем удаленный элем
+            return t; // возвращаем удаленный элем
+            } else{
+                return 'stack is empty' //если пустой массив выводим
+            }
+        }
+        peek(){
+            return this.storage[this.tail - 1]
+        }
+        
+    }
+    let ms = new MyStack();
+    ms.push(1);
+    ms.push(2);
+    ms.push(3);
+
+    document.write(`stack =>  ${ms.storage} <br>`); // 1 2 3
+    document.write(`pop => ${ms.pop()} <br>`); // pop => 3
+    document.write(`pop => ${ms.pop()} <br>`); // pop => 1
+    document.write(`pop => ${ms.pop()} <br>`); // pop => 1
+    document.write(`stack =>  ${ms.storage} <br>`); // stack is empty
+        
+    ms.push(11);
+    ms.push(12);
+
+    document.write(`stack =>  ${ms.storage} <br>`); // 11 12
+    document.write(`pop => ${ms.pop()} <br>`); // pop => 12
+    document.write(`stack =>  ${ms.storage} <br>`); // 11
+
+
+        /* 
+        Список эта такая структура, кот содержит какието данные, и ссылку на след элемент точно такой же 
+        При использовании связанного списка элементы могут размещаться где угодно в памяти. В каждом элементе хранится адрес следующего элемента в списке. Таким образом, набор произвольных адресов памяти объединяеся в цепочку.
+
+        Применяют:
+        - Проверка правильности скобочной последовательности
+        - Обход дерева
+        - Обработка выражений при вычислении математических выражений, Определние приоритета операций
+        - Польская запись (ОПЗ)
+        - Исправление ошибок в тексте
+        - История посещения веб-страниц
+        - Отмена и повтор действий
+        - Система вызовов ф-ций
+        - Решение задачи о ханойской башне
+        - Использование истории команд
+        - Обработка событий в играх 
+        */
+
+        class Node1 { // картинка1
+            constructor(){
+                this.value = 0;
+                this.next = new Node1()
+            }
+        }
+        
+        let root1 = new Node1();
+        root.next.next.next.next.next.next.next.next.next.next;
+
+        
+
+        // механизм бинарного дерева(не  больше 2) построенного на списках(ребеглк-мама-папа ...)
+        class Node2 {
+            constructor(){
+                this.value = 0;
+                this.left = new Node2();
+                this.right = new Node2();
+            }
+        }
+
+        let root2 = new Node2();
+        root.left.left.left.left.right.right.right.right.left.left
+
+
+        class MyNode { //модель узла 
+            constructor(value){
+                this.data = value;
+                this.next = null;
+            }
+        }
+        
+        function prin(parameter) mynode: any
+        let temp = mynode;
+        
+        while ( temp !== nul){
+            log(temp.data);
+            temp = temp.next;
+        }
+
+
+        let n2 = new MyNode(2);
+        let n4 = new MyNode(4);
+        let n7 = new MyNode(7);
+        let n0 = new MyNode(0);
+        let n9 = new MyNode(9);
+
+        n2.next = n4;
+        n4.next = n7;
+        n7.next = n0;
+        n0.next = n9;
+
+        /* 
+        class => состояние(переменная)
+                 поведение(функция)
+        */
+
+        /* 
+        ОЧЕРЕДЬ - это линейная структура данных(массив или список), добавление и удаление элементов в кот происходит путём операций push и pop.
+        Первым из очереди удаляется элемент, кот был помещен туда первым, т.е. в очереди реализуется принцип "первым пришел- первым ушел" first-in, first-out - FIFO
+        У очереди имеется голова (head) и хвост (tail).
+
+        Применяют;
+        - Очередь обработка задач
+        - Буферизация данных
+        - Реализация алгоритма 
+        - Многопоточная обработка, реализация пула потоков
+        - Кратчайшие пути
+        - Закраска областей
+
+ 
+
+
+        */
+
+
+         
+
+    </script>
+</body>
+</html>
